@@ -1,7 +1,9 @@
 def cal_bmi(height,weight):
 
     bmi=weight/((height/100)**2)
-    print(bmi)
+    print(bmi," \n \n you are ", end="") 
+
+
  
     if bmi < 18.5:
     
@@ -19,9 +21,9 @@ def cal_bmi(height,weight):
     
         print("overweight")
     
-height=float(input("enter your height in cm"))
+height=float(input("\nenter your height in cm : "))
 
-weight=float(input("enter your weight in kg"))
+weight=float(input("\nenter your weight in kg :"))
 
 cal_bmi(height,weight)
     
