@@ -30,7 +30,43 @@ def show_patient_menu():
 			print("Incorrect Input.")
 
 def show_appointment_menu():
-	pass
+	print("1. Book an appointment")
+	print("2. View appointment")
+	print("3. Cancel an appointment")
+
+	choice = int(input())
+	match choice:
+		case 1:
+			dr_data = load_Doc_data()
+			add_appointment(dr_data)
+			save_save_appointment(dr_data)
+		case 2:
+			edit_patient()
+		case 3:
+			delete_patient()
+		case default:
+			print("Incorrect Input.")
+
+
+
+def add_appointment(dr_data):
+	patient_id = int(input("Enter the ID of the patient: "))
+	name=input("enter name of patient")
+	date = input("Enter the date of the appointment: ")
+	time = input("Enter the time of the appointment: ")
+
+	appointment = {}
+	appointment["patient_id"] = patient_id
+	appointment["name"] = name
+	appointment["date"] = date
+	appointment["time"] = time
+
+	dr_data["appointment_list"].append(appointment)
+
+def save_save_appointment(dr_data):
+	with open('c:/python codes/smallprojets/doctors_data.json', 'w') as json_file_handle:
+		json.dump(dr_data, json_file_handle, indent=8)
+		print("information has been updated")
 
 def add_patient(pdata):
 	patient_id = int(input("Enter the ID of the patient: "))
@@ -103,6 +139,11 @@ def load_data():
 		json_data = json.load(json_file_handle)
 	return json_data
 
+def load_Doc_data():
+	with open('c:/python codes/smallprojets/doctors_data.json', 'r') as json_file_handle:
+		json_data = json.load(json_file_handle)
+	return json_data
+
 def update_data(id,choice, data, pdata):
 	for patient in pdata["patients_list"]:
 		if (patient["patient_id"] == id and choice == 1):
@@ -123,5 +164,6 @@ def save_data(pdata):
 	with open('c:/python codes/smallprojets/patient_data.json', 'w') as json_file_handle:
 		json.dump(pdata, json_file_handle, indent=8)
 		print("information has been updated")
+
 
 show_main_menu()

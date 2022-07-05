@@ -42,6 +42,13 @@
                         "lastName": "darade",
                         "gender": "male",
                         "age": 20
+                },
+                {
+                        "patient_id": 4,
+                        "firstName": "shubham",
+                        "lastName": "bhagwat",
+                        "gender": "male",
+                        "age": 23
                 }
         ]
 }
