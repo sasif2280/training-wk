@@ -49,6 +49,13 @@
                         "lastName": "bhagwat",
                         "gender": "male",
                         "age": 23
+                },
+                {
+                        "patient_id": 5,
+                        "firstName": "AS",
+                        "lastName": "SF",
+                        "gender": "MALE",
+                        "age": 32
                 }
         ]
 }
